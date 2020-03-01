@@ -1,0 +1,119 @@
+"/home/bngp/reads/testbestand1_paired.fastq"
+"/home/bngp/reads/testbestand2_paired.fastq"
+"/home/bngp/reads/testbestand{nummer}_paired.fastq"
+
+rule all:
+    input:
+        expand(["Deelopdracht_1/paired_{nummer}.QC",
+                "Deelopdracht_2/trimmed_1.fastq",
+                "Deelopdracht_2/trimmed_2.fastq",
+                "Deelopdracht_3/trimmed_{nummer}.QC",
+                "Deelopdracht_4/eg2.sam",
+                "Deelopdracht_5/variatie.vcf",
+                "Deelopdracht_5/consensus.fq",
+                "Deelopdracht_6/statistics_variants.txt"], nummer=[1,2])
+
+rule Deelopdracht_1:
+    input:
+        "/home/bngp/reads/bngsa_nietinfected_{nummer}.fastq"
+    output:
+        "Deelopdracht_1/paired_{nummer}.QC"
+    script:
+        "Deelopdracht_1.py"
+
+rule Deelopdracht_2:
+    input:
+        pair1="/home/bngp/reads/bngsa_nietinfected_1.fastq",
+        pair2="/home/bngp/reads/bngsa_nietinfected_2.fastq"
+    output:
+        trimmed1="Deelopdracht_2/trimmed_1.fastq",
+        trimmed2="Deelopdracht_2/trimmed_2.fastq"
+    script:
+        "Deelopdracht_2.py"
+
+rule Deelopdracht_3:
+    input:
+        "Deelopdracht_2/trimmed_{nummer}.fastq"
+    output:
+        "Deelopdracht_3/trimmed_{nummer}.QC"
+    script:
+        "Deelopdracht_1.py"
+
+rule Deelopdracht_4:
+    input:
+        pair1="Deelopdracht_2/trimmed_1.fastq",
+        pair2="Deelopdracht_2/trimmed_2.fastq"
+    output:
+        "Deelopdracht_4/eg2.sam"
+    shell:
+        """
+        bowtie2-build /home/bngp/refgenome/infected_consensus.fasta ./Deelopdracht_4/infected_consesus
+        bowtie2 -x ./Deelopdracht_4/infected_consesus -1 {input.pair1} -2 {input.pair2} -S {output}
+        """
+
+rule Deelopdracht_5:
+    input:
+        "Deelopdracht_4/eg2.sam"
+    output:
+        vcf="Deelopdracht_5/variatie.vcf",
+	consensus="Deelopdracht_5/consensus.fq"
+    shell:
+        """
+        cp /home/bngp/refgenome/infected_consensus.fasta ./Deelopdracht_5/infected_consensus.fasta
+        samtools view -S -b {input} > ./Deelopdracht_5/eg2.bam
+        samtools sort ./Deelopdracht_4/eg2.sam -o ./Deelopdracht_5/sorted_eg2.bam
+        samtools mpileup -E -uf ./Deelopdracht_5/infected_consensus.fasta ./Deelopdracht_5/sorted_eg2.bam > ./Deelopdracht_5/raw_eg2.mpileup
+        cat ./Deelopdracht_5/raw_eg2.mpileup | bcftools call -mv -Ob -o ./Deelopdracht_5/calls.bcf
+        bcftools view -i '%QUAL>=20' ./Deelopdracht_5/calls.bcf | egrep -v INDEL > {output.vcf}
+        cat ./Deelopdracht_5/raw_eg2.mpileup | bcftools call -c | vcfutils.pl vcf2fq > {output.consensus}
+        """
+
+rule Deelopdracht_6:
+    input:
+        vcf="Deelopdracht_5/variatie.vcf",
+        consensus="Deelopdracht_5/consensus.fq"
+    output:
+        "Deelopdracht_6/statistics_variants.txt"
+    script:
+        "Deelopdracht_6.py"
+
+rule help:
+    run:
+        print("""[i. De functie van de pipeline]
+        De pipeline genereert een file genaamd: 'statistics_variants.txt' die een overzicht geeft
+        van deletes, inserties en mutaties van de Leptopilina Clavipes (sluipwesp) uit Illumia-data.
+
+        [ii. De manier van gebruik van de pipeline]
+        Typ in de shell: 'snakemake --snakefile Snakefile_s1082644 <rule> en druk op enter.
+
+        [iii. Een voorbeeld voor het starten van de pipeline]
+        Voor het starten van de gehele pipeline:'snakemake --snakefile Snakefile_s1082644 all en druk op enter.
+        De outputfiles in een specifieke directory:'snakemake -d <directory_name> --snakefile Snakefile_s1082644 all en druk op enter.
+        Voor het runnen van een specifieke Deelopdracht: 'snakemake --snakefile Snakefile_s1082644 Deelopdracht_[1..6]'
+        Voor het tonen van de Usage Information van een script: 'python3 Deelopdracht_[1..6].py -h'
+
+        [iv. Een overzicht van de naamgevingen van de outputbestanden]
+        Deelopdracht_1/paired_1.QC
+        Deelopdracht_1/paired_2.QC
+        Deelopdracht_2/trimmed_1.fastq
+        Deelopdracht_2/trimmed_2.fastq
+        Deelopdracht_3/trimmed_1.QC
+        Deelopdracht_3/trimmed_2.QC
+        Deelopdracht_4/infected_consesus.1.bt2
+        Deelopdracht_4/infected_consesus.2.bt2
+        Deelopdracht_4/infected_consesus.3.bt2
+        Deelopdracht_4/infected_consesus.4.bt2
+        Deelopdracht_4/infected_consesus.rev.1.bt2
+        Deelopdracht_4/infected_consesus.rev.2.bt2
+        Deelopdracht_5/calls.bcf
+        Deelopdracht_5/consensus.fq
+        Deelopdracht_5/eg2.bam
+        Deelopdracht_5/infected_consensus.fasta
+        Deelopdracht_5/infected_consensus.fasta.fai
+        Deelopdracht_5/raw_eg2.mpileup
+        Deelopdracht_5/sorted_eg2.bam
+        Deelopdracht_5/variatie.vcf
+        Deelopdracht_6/varianten_enzo.vcf
+        Deelopdracht_6/consensus.fa
+        Deelopdracht_6/statistics_variants.txt
+        final.vcf""")

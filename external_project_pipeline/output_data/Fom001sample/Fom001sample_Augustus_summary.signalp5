@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    17       0.439
+  max. Y    17       0.630
+  max. S     1       0.940
+  mean S     1-16    0.889
+       D     1-16    0.770   0.550   YES
+Name=Fom001_contig_1.226|11358-12084|d2m:431bp|1|f?|len:225	SP='YES' Cleavage site between pos. 16 and 17: CVA-GP D=0.770 D-cutoff=0.550 Networks=SignalP-noTM

@@ -1,0 +1,279 @@
+BLASTN 2.6.0+
+
+
+Reference: Zheng Zhang, Scott Schwartz, Lukas Wagner, and Webb
+Miller (2000), "A greedy algorithm for aligning DNA sequences", J
+Comput Biol 2000; 7(1-2):203-14.
+
+
+
+Database: genomes//Foq001sample.fasta
+           3 sequences; 8,553 total letters
+
+
+
+Query= MRFLLLIAMSMTWVCSIAG
+
+Length=492
+
+
+***** No hits found *****
+
+
+
+Lambda      K        H
+    1.33    0.621     1.12 
+
+Gapped
+Lambda      K        H
+    1.28    0.460    0.850 
+
+Effective search space used: 4068258
+
+
+Query= MLFKIAWVSLFTTWAISVAA
+
+Length=699
+
+
+***** No hits found *****
+
+
+
+Lambda      K        H
+    1.33    0.621     1.12 
+
+Gapped
+Lambda      K        H
+    1.28    0.460    0.850 
+
+Effective search space used: 5819472
+
+
+Query= MAPYSMVLLGALSILGFGAYA
+
+Length=465
+
+
+***** No hits found *****
+
+
+
+Lambda      K        H
+    1.33    0.621     1.12 
+
+Gapped
+Lambda      K        H
+    1.28    0.460    0.850 
+
+Effective search space used: 3838461
+
+
+Query= MKLALIASILAAGCVA
+
+Length=678
+                                                                      Score     E
+Sequences producing significant alignments:                          (Bits)  Value
+
+Foq001_contig_1024                                                    983     0.0  
+
+
+>Foq001_contig_1024 
+Length=5019
+
+ Score = 983 bits (532),  Expect = 0.0
+ Identities = 590/619 (95%), Gaps = 0/619 (0%)
+ Strand=Plus/Minus
+
+Query  1     ATGAAGCTCGCTCTTATCGCATCAATCTTGGCTGCCGGCTGCGTAGCTGGTCCCCTTGCT  60
+             ||||||||||||||||| ||||||||||||||||| |||||| ||||||| |||||||||
+Sbjct  1453  ATGAAGCTCGCTCTTATTGCATCAATCTTGGCTGCTGGCTGCATAGCTGGCCCCCTTGCT  1394
+
+Query  61    CAAACCGAACCCGAATCTGCTGATGTGGCTGAGCACACCATCAATTATATTGACATCGCT  120
+             ||||||||| ||||||||| |||| || |||||||||||||||||||||||||||| |||
+Sbjct  1393  CAAACCGAATCCGAATCTGTTGATATGCCTGAGCACACCATCAATTATATTGACATTGCT  1334
+
+Query  121   CCAGAAGAGTTTGAACCACCGAAGGCGGATTTATCATCTTTGGTCTCTCGAGACACCCTT  180
+             ||||||||||||||||||  ||||||| ||||||||||||||||||| ||||||||| ||
+Sbjct  1333  CCAGAAGAGTTTGAACCATTGAAGGCGAATTTATCATCTTTGGTCTCCCGAGACACCTTT  1274
+
+Query  181   CCCGTCACGAACTGTCCAGCCGGACAGACCTATGACCGCTCCGTCTGCTATAAAGCCAAT  240
+             |||||| ||| ||||||||||||||||||||||||||||||||||||||||||||| |||
+Sbjct  1273  CCCGTCTCGACCTGTCCAGCCGGACAGACCTATGACCGCTCCGTCTGCTATAAAGCTAAT  1214
+
+Query  241   ACGATTCGAAGCTTTTGCGTGGCGAACCCTCGCAGCAACCGGGAAAAGATTAGCGACACC  300
+             |||||||||||||||||||||||||||||||||||||||||||||||||||| |||||||
+Sbjct  1213  ACGATTCGAAGCTTTTGCGTGGCGAACCCTCGCAGCAACCGGGAAAAGATTACCGACACC  1154
+
+Query  301   CCTTGCAAGCCGCAGGAGATCTGTGTACAGCGCAGTCTCAGCAACGGAAAAAGCTATGCT  360
+             ||||||||||||||||||||||||||||||||||| |||||||| |||||||||| ||||
+Sbjct  1153  CCTTGCAAGCCGCAGGAGATCTGTGTACAGCGCAGGCTCAGCAATGGAAAAAGCTTTGCT  1094
+
+Query  361   AAGTGCATTCCTGTCGTTGATCTTGTACAGTGGAAGACGAGCCCAAATGGGAACAAGGAA  420
+             |||||||||||| ||||| | ||||||  |||||||||||||||| ||||||||||||||
+Sbjct  1093  AAGTGCATTCCTATCGTTAACCTTGTAGCGTGGAAGACGAGCCCAGATGGGAACAAGGAA  1034
+
+Query  421   GGCTGCACCACGACCTCAGTCAACCCTGCGGGTTATCATCATCTGGGTACCATTGTGTAT  480
+             ||||||||||||||||||| ||||||||||||||||||||||||||||||||||||||||
+Sbjct  1033  GGCTGCACCACGACCTCAGCCAACCCTGCGGGTTATCATCATCTGGGTACCATTGTGTAT  974
+
+Query  481   GACGTTAACAAGAATCCTATTGAAGTTGATAAGATCAGCTACTTTGGAGAGCCTGGCAAC  540
+             |||||||||||||||||||||| |||||||||||||||||||||||||||||||||||||
+Sbjct  973   GACGTTAACAAGAATCCTATTGCAGTTGATAAGATCAGCTACTTTGGAGAGCCTGGCAAC  914
+
+Query  541   GTGAATGAAGGTATTGGTGGATCGACATCGTACTTCAGCAGCGACCTTTTCCAGTTCTCG  600
+             ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  913   GTGAATGAAGGTATTGGTGGATCGACATCGTACTTCAGCAGCGACCTTTTCCAGTTCTCG  854
+
+Query  601   AAAAGCCGATTTATGAAAA  619
+             |||||||||||||||||||
+Sbjct  853   AAAAGCCGATTTATGAAAA  835
+
+
+
+Lambda      K        H
+    1.33    0.621     1.12 
+
+Gapped
+Lambda      K        H
+    1.28    0.460    0.850 
+
+Effective search space used: 5640804
+
+
+Query= MRPSRMLLLLPLAVSVAT
+
+Length=168
+                                                                      Score     E
+Sequences producing significant alignments:                          (Bits)  Value
+
+Foq001_contig_312                                                     145     3e-38
+
+
+>Foq001_contig_312 
+Length=2077
+
+ Score = 145 bits (78),  Expect = 3e-38
+ Identities = 78/78 (100%), Gaps = 0/78 (0%)
+ Strand=Plus/Plus
+
+Query  70   AGGGACGACCAAGTCGCCACTATTGAAGAAGCTATTAATGAACCTCATTCTCTTGACGAG  129
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  799  AGGGACGACCAAGTCGCCACTATTGAAGAAGCTATTAATGAACCTCATTCTCTTGACGAG  858
+
+Query  130  AGAGCCCTTGTTGAACGG  147
+            ||||||||||||||||||
+Sbjct  859  AGAGCCCTTGTTGAACGG  876
+
+
+ Score = 134 bits (72),  Expect = 6e-35
+ Identities = 72/72 (100%), Gaps = 0/72 (0%)
+ Strand=Plus/Plus
+
+Query  1    ATGCGTCCCTCACGCATGCTTTTACTCCTCCCCCTAGCCGTCTCTGTGGCTACTACTCAT  60
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  680  ATGCGTCCCTCACGCATGCTTTTACTCCTCCCCCTAGCCGTCTCTGTGGCTACTACTCAT  739
+
+Query  61   ATTAAGCAGAGG  72
+            ||||||||||||
+Sbjct  740  ATTAAGCAGAGG  751
+
+
+
+Lambda      K        H
+    1.33    0.621     1.12 
+
+Gapped
+Lambda      K        H
+    1.28    0.460    0.850 
+
+Effective search space used: 1319670
+
+
+Query= MKLLALLALASPLVSA
+
+Length=388
+
+
+***** No hits found *****
+
+
+
+Lambda      K        H
+    1.33    0.621     1.12 
+
+Gapped
+Lambda      K        H
+    1.28    0.460    0.850 
+
+Effective search space used: 3183114
+
+
+Query= MLSWMHAHVSVMIMLLMPGASR
+
+Length=280
+
+
+***** No hits found *****
+
+
+
+Lambda      K        H
+    1.33    0.621     1.12 
+
+Gapped
+Lambda      K        H
+    1.28    0.460    0.850 
+
+Effective search space used: 2263926
+
+
+Query= MDRTHRGRLSHVLVMLSGGALA
+
+Length=184
+                                                                      Score     E
+Sequences producing significant alignments:                          (Bits)  Value
+
+Foq001_contig_312                                                     300     6e-85
+
+
+>Foq001_contig_312 
+Length=2077
+
+ Score = 300 bits (162),  Expect = 6e-85
+ Identities = 162/162 (100%), Gaps = 0/162 (0%)
+ Strand=Plus/Plus
+
+Query  23    ATGGACAGAACTCATCGTGGACGGTTATCGCATGTGCTTGTTATGTTGAGCGGGGGAGCG  82
+             ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  1039  ATGGACAGAACTCATCGTGGACGGTTATCGCATGTGCTTGTTATGTTGAGCGGGGGAGCG  1098
+
+Query  83    CTGGCAAGGGCGGTAACTGAAGTGGTGGAAGTCTTGCCGGGTGCGGTGGTGCACATTTTT  142
+             ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  1099  CTGGCAAGGGCGGTAACTGAAGTGGTGGAAGTCTTGCCGGGTGCGGTGGTGCACATTTTT  1158
+
+Query  143   ACACACGGTGCAAGTACTGTCTCGTTTTCCAACAGTGGCACA  184
+             ||||||||||||||||||||||||||||||||||||||||||
+Sbjct  1159  ACACACGGTGCAAGTACTGTCTCGTTTTCCAACAGTGGCACA  1200
+
+
+
+Lambda      K        H
+    1.33    0.621     1.12 
+
+Gapped
+Lambda      K        H
+    1.28    0.460    0.850 
+
+Effective search space used: 1455894
+
+
+  Database: genomes//Foq001sample.fasta
+    Posted date:  Jan 20, 2020  3:06 PM
+  Number of letters in database: 8,553
+  Number of sequences in database:  3
+
+
+
+Matrix: blastn matrix 1 -2
+Gap Penalties: Existence: 0, Extension: 2.5

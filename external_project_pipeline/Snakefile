@@ -1,0 +1,108 @@
+import configparser
+import os
+config = configparser.ConfigParser()
+config.read("config.ini")
+directory = config['Parameters']['name_dir']
+input_folder = config['Parameters']['input_folder']
+
+genome_files = os.popen("ls " + input_folder +" | egrep 'fasta|fa|fna|ffn|faa|frn'").read()
+genomes = genome_files.split("\n")[:-1]
+
+subdir =  [i.split('.', 1)[0] for i in genomes]
+print(subdir)
+
+rule all:
+    input:
+	    expand("{directory}/{subdir}/{subdir}_mimp_flank.fasta", subdir=subdir, directory=directory,),
+            expand("{directory}/{subdir}/{subdir}_MetStop_putative_effectors_nuc.fasta", subdir=subdir, directory=directory),
+            expand("{directory}/{subdir}/{subdir}_Augustus_putative_effectors_aminoacid.fasta", subdir=subdir, directory=directory),
+	    directory + "/combined_effectors.fasta",
+            expand("{directory}/all_putative_effectors_concatenated_clustered.fasta",directory=directory),
+	    expand("{directory}/presence_absence.txt", directory=directory),
+	    expand("{directory}/blastn_presence_absence_reordered.txt", directory=directory)
+
+rule mimp_fasta:
+    input:
+	    a="config.ini",
+            b=input_folder + "{subdir}.fasta"
+    output:
+	    a="{directory}/{subdir}/{subdir}_mimp_flank.fasta",
+	    b="{directory}/{subdir}/{subdir}_tir_output.fasta",
+    script:
+	    "MimpFinder.py"
+
+rule mimp_fa:
+    input:
+	    a="config.ini",
+            b=input_folder + "{subdir}.fa"
+    output:
+	    a="{directory}/{subdir}/{subdir}_mimp_flank.fasta",
+	    b="{directory}/{subdir}/{subdir}_tir_output.fasta",
+    script:
+	    "MimpFinder.py"
+
+rule mimp_fna:
+    input:
+	    a="config.ini",
+            b=input_folder + "{subdir}.fna"
+    output:
+	    a="{directory}/{subdir}/{subdir}_mimp_flank.fasta",
+	    b="{directory}/{subdir}/{subdir}_tir_output.fasta",
+    script:
+	    "MimpFinder.py"
+
+rule MetStop:
+    input:
+	    a="{directory}/{subdir}/{subdir}_mimp_flank.fasta"
+    output:
+	    a="{directory}/{subdir}/{subdir}_MetStop_putative_effectors_AA.fasta",
+	    b="{directory}/{subdir}/{subdir}_MetStop_summary.signalp5",
+	    c="{directory}/{subdir}/{subdir}_MetStop_putative_effectors_nuc.fasta"
+    script:
+	    "MetStop.py"
+
+rule augustus:
+     input:
+           founded_mimps="{directory}/{subdir}/{subdir}_mimp_flank.fasta"
+     output:
+           augustus_signalp="{directory}/{subdir}/{subdir}_Augustus_summary.signalp5",
+           augustus_effectors_prot="{directory}/{subdir}/{subdir}_Augustus_putative_effectors_aminoacid.fasta",
+	   augustus_effectors_nuc="{directory}/{subdir}/{subdir}_Augustus_putative_effectors_nucleotide.fasta"
+     script:
+           "augustus.py"
+
+rule combine:
+     input:
+           file1 = expand("{directory}/{subdir}/{subdir}_Augustus_putative_effectors_nucleotide.fasta", directory=directory, subdir=subdir),
+           file2 = expand("{directory}/{subdir}/{subdir}_MetStop_putative_effectors_nuc.fasta", directory=directory, subdir=subdir)
+     output:
+           "{directory}/combined_effectors.fasta"
+     shell:
+          """
+          cat {input.file1} {input.file2} > {output}
+          """ 
+         
+rule clustering:
+     input:
+          metstop_eff_nuc="{directory}/combined_effectors.fasta"
+     output:
+          eff_clustered ="{directory}/all_putative_effectors_concatenated_clustered.fasta"
+     script:
+           "clustering.py"
+
+
+rule presence_absence_effectors:
+     input:
+          clustered_effectors ="{directory}/all_putative_effectors_concatenated_clustered.fasta"
+     output:
+          presence_absence ="{directory}/presence_absence.txt"
+     script:
+          "presence_absence.py"
+
+rule visualization:
+     input: 
+           presence_absence = "{directory}/presence_absence.txt"
+     output:
+           reordered = "{directory}/blastn_presence_absence_reordered.txt"
+     shell:
+           "Rscript 04.cluster_and_plot_heatmap3.R heatmap.3.R {input.presence_absence} {directory}/ 1 average 1 average"

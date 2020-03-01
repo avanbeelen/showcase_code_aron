@@ -1,0 +1,57 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    19       0.124
+  max. Y    11       0.295
+  max. S     1       0.865
+  mean S     1-10    0.736
+       D     1-10    0.533   0.550   NO
+Name=candidate_effector:1|Foq001_contig_312|mimp_downstreamregion:221-2077_(strand:+)_TTTTTGCATCCCACTGTA^203-220|frame:0|len:78	SP='NO' D=0.533 D-cutoff=0.550 Networks=SignalP-noTM
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    30       0.115
+  max. Y    12       0.123
+  max. S     6       0.168
+  mean S     1-11    0.138
+       D     1-11    0.131   0.550   NO
+Name=candidate_effector:2|Foq001_contig_312|mimp_downstreamregion:221-2077_(strand:+)_TTTTTGCATCCCACTGTA^203-220|frame:+1|len:90	SP='NO' D=0.131 D-cutoff=0.550 Networks=SignalP-noTM
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    38       0.139
+  max. Y    38       0.141
+  max. S    37       0.292
+  mean S     1-37    0.164
+       D     1-37    0.153   0.550   NO
+Name=candidate_effector:3|Foq001_contig_312|mimp_downstreamregion:221-2077_(strand:+)_TTTTTGCATCCCACTGTA^203-220|frame:+1|len:192	SP='NO' D=0.153 D-cutoff=0.550 Networks=SignalP-noTM
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    14       0.107
+  max. Y    12       0.104
+  max. S     6       0.123
+  mean S     1-11    0.103
+       D     1-11    0.104   0.550   NO
+Name=candidate_effector:4|Foq001_contig_312|mimp_downstreamregion:221-2077_(strand:+)_TTTTTGCATCCCACTGTA^203-220|frame:+2|len:102	SP='NO' D=0.104 D-cutoff=0.550 Networks=SignalP-noTM
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    33       0.108
+  max. Y    37       0.106
+  max. S    27       0.110
+  mean S     1-36    0.099
+       D     1-36    0.102   0.550   NO
+Name=candidate_effector:5|Foq001_contig_312|mimp_downstreamregion:221-2077_(strand:+)_TTTTTGCATCCCACTGTA^203-220|frame:+2|len:111	SP='NO' D=0.102 D-cutoff=0.550 Networks=SignalP-noTM
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    23       0.416
+  max. Y    23       0.545
+  max. S    11       0.797
+  mean S     1-22    0.714
+       D     1-22    0.636   0.550   YES
+Name=candidate_effector:6|Foq001_contig_312|mimp_downstreamregion:221-2077_(strand:+)_TTTTTGCATCCCACTGTA^203-220|frame:+2|len:162	SP='YES' Cleavage site between pos. 22 and 23: ALA-RA D=0.636 D-cutoff=0.550 Networks=SignalP-noTM
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    33       0.130
+  max. Y    12       0.171
+  max. S     1       0.349
+  mean S     1-11    0.210
+       D     1-11    0.192   0.550   NO
+Name=candidate_effector:7|Foq001_contig_312|mimp_downstreamregion:221-2077_(strand:+)_TTTTTGCATCCCACTGTA^203-220|frame:+2|len:120	SP='NO' D=0.192 D-cutoff=0.550 Networks=SignalP-noTM
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    65       0.152
+  max. Y    65       0.126
+  max. S    38       0.118
+  mean S     1-64    0.105
+       D     1-64    0.115   0.550   NO
+Name=candidate_effector:8|Foq001_contig_312|mimp_downstreamregion:221-2077_(strand:+)_TTTTTGCATCCCACTGTA^203-220|frame:+2|len:336	SP='NO' D=0.115 D-cutoff=0.550 Networks=SignalP-noTM

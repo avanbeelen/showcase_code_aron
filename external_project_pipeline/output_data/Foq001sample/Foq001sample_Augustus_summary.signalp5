@@ -1,0 +1,15 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    19       0.177
+  max. Y    19       0.384
+  max. S    15       0.887
+  mean S     1-18    0.824
+       D     1-18    0.621   0.550   YES
+Name=Foq001_contig_312|680-955|d2m:459bp|1|f?|len:55	SP='YES' Cleavage site between pos. 18 and 19: VAT-TH D=0.621 D-cutoff=0.550 Networks=SignalP-noTM
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    19       0.177
+  max. Y    19       0.384
+  max. S    15       0.887
+  mean S     1-18    0.824
+       D     1-18    0.621   0.550   YES
+Name=Foq001_contig_312|680-955|d2m:422bp|1|f?|len:55	SP='YES' Cleavage site between pos. 18 and 19: VAT-TH D=0.621 D-cutoff=0.550 Networks=SignalP-noTM

@@ -1,0 +1,22 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    20       0.735
+  max. Y    20       0.830
+  max. S     2       0.982
+  mean S     1-19    0.934
+       D     1-19    0.886   0.550   YES
+Name=Fol4287broad_contig_2.36|4993-5484|d2m:230bp|1|f?|len:163	SP='YES' Cleavage site between pos. 19 and 20: IAG-LP D=0.886 D-cutoff=0.550 Networks=SignalP-noTM
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    21       0.395
+  max. Y    21       0.598
+  max. S    11       0.945
+  mean S     1-20    0.904
+       D     1-20    0.763   0.550   YES
+Name=Fol4287broad_contig_2.36|108248-107550|d2m:1592bp|1|f?|len:232	SP='YES' Cleavage site between pos. 20 and 21: VAA-NP D=0.763 D-cutoff=0.550 Networks=SignalP-noTM
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    22       0.509
+  max. Y    22       0.656
+  max. S    18       0.911
+  mean S     1-21    0.847
+       D     1-21    0.759   0.550   YES
+Name=Fol4287broad_contig_2.36|117322-116790|d2m:793bp|-1|f?|len:154	SP='YES' Cleavage site between pos. 21 and 22: AYA-QE D=0.759 D-cutoff=0.550 Networks=SignalP-noTM
